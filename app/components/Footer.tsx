@@ -44,7 +44,7 @@ const Footer = () => {
               {clinicConfig.specialty[lang]}
             </p>
             <div className="flex items-start gap-2 mt-2 text-teal-100 text-sm">
-              <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
               <span>{clinicConfig.address[lang]}</span>
             </div>
           </div>

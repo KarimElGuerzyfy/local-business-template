@@ -4,10 +4,10 @@ export const clinicConfig = {
     fr: "Dr. Amine Marbouh",
     ar: "د. أمين مربوح",
   },
-  clinicName: {
-    fr: "Centre Dentaire Dr. Marbouh",
-    ar: "مركز طب الأسنان د. مربوح",
-  },
+clinicName: {
+  fr: "Dr. Amine Marbouh",
+  ar: "د. أمين مربوح"
+},
   specialty: {
     fr: "Dentiste & Orthodontiste à Fès",
     ar: "طبيب أسنان وتقويم في فاس",

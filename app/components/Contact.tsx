@@ -94,7 +94,7 @@ const Contact = () => {
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between gap-6">
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 flex-shrink-0 text-teal-600" />
+                <Clock className="w-5 h-5 shrink-0 text-teal-600" />
                 <h3 className="text-lg font-bold text-gray-900">{t.hoursTitle}</h3>
               </div>
               <div className="flex flex-col gap-3">
@@ -109,7 +109,7 @@ const Contact = () => {
 
             <div className="flex flex-col gap-4 mt-auto">
               <div className="flex items-center gap-2 text-sm text-gray-500">
-                <MapPin className="w-4 h-4 flex-shrink-0 text-teal-600" />
+                <MapPin className="w-4 h-4 shrink-0 text-teal-600" />
                 <span>{clinicConfig.address?.[lang] || ""}</span>
               </div>
 
@@ -139,7 +139,7 @@ const Contact = () => {
           {/* Right Column: Contact Form */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
-              <Send className="w-5 h-5 flex-shrink-0 text-teal-600" />
+              <Send className="w-5 h-5 shrink-0 text-teal-600" />
               <h3 className="text-lg font-bold text-gray-900">{t.formTitle}</h3>
             </div>
 

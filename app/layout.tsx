@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Cairo } from "next/font/google";
+import { Figtree, Hind, Cairo } from "next/font/google";
 import { LanguageProvider } from "./LanguageContext";
 import "./globals.css";
 
@@ -9,9 +9,16 @@ const figtree = Figtree({
   display: "swap",
 });
 
+const hind = Hind({
+  variable: "--font-hind",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
 const cairo = Cairo({
   variable: "--font-cairo",
-  subsets: ["arabic", "latin"],
+  subsets: ["arabic"],
   display: "swap",
 });
 
@@ -27,9 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${figtree.variable} ${cairo.variable}`}>
+    <html
+      lang="fr"
+      className={`${figtree.variable} ${hind.variable} ${cairo.variable}`}
+    >
       <body className="min-h-screen flex flex-col antialiased">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
