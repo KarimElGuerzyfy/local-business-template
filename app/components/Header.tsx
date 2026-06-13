@@ -5,6 +5,7 @@ import { Menu, X, Phone, Globe } from "lucide-react";
 import { FaTooth } from "react-icons/fa";
 import { useLanguage } from "../LanguageContext";
 import clinicConfig from "@/clinic.config";
+import Image from "next/image";
 
 const navItems: Record<"fr" | "ar", { label: string; href: string }[]> = {
   fr: [
@@ -22,7 +23,7 @@ const navItems: Record<"fr" | "ar", { label: string; href: string }[]> = {
 };
 
 const Header = () => {
-  const { lang, toggleLanguage, isRTL } = useLanguage() as {
+  const { lang, toggleLanguage,} = useLanguage() as {
     lang: "fr" | "ar";
     toggleLanguage: () => void;
     isRTL: boolean;
@@ -30,13 +31,13 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const items = navItems[lang];
-  const clinicName = clinicConfig.clinicName[lang];
+  const clinicName = clinicConfig.clinicName["fr"];
 
   const closeMenu = () => setIsOpen(false);
 
   return (
     <header
-      dir={isRTL ? "rtl" : "ltr"}
+      dir="ltr"
       className="sticky top-0 z-50 w-full bg-brand border-b border-white/10 font-hind"
     >
       <div className="mx-auto p-6 h-16 flex items-center justify-between w-full">        
@@ -47,7 +48,7 @@ const Header = () => {
           >
             <FaTooth className="w-6 h-6 text-white shrink-0 group-hover:text-white/80 transition-colors" />
             <div className="flex flex-col">
-              <span className="text-white text-base lg:text-xl font-bold leading-tight tracking-tight group-hover:text-white/80 transition-colors whitespace-nowrap">
+              <span className="text-white text-base lg:text-xl leading-tight tracking-tight group-hover:text-white/80 transition-colors whitespace-nowrap">
                 {clinicName}
               </span>
             </div>
@@ -59,7 +60,7 @@ const Header = () => {
             <a
               key={item.href}
               href={item.href}
-              className="text-white/90 hover:text-white transition-colors font-semibold text-sm tracking-wide relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all"
+              className="text-white/90 hover:text-white transition-colors text-sm tracking-wide relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all"
             >
               {item.label}
             </a>
@@ -70,14 +71,15 @@ const Header = () => {
           <button
             onClick={toggleLanguage}
             aria-label="Toggle Language"
-            className="flex items-center justify-center gap-2 text-sm font-bold text-white border border-white/40 rounded-2xl px-4 py-2 hover:bg-white/10 transition-all focus:ring-2 focus:ring-white/20 whitespace-nowrap"
+            className="flex items-center justify-center gap-2 text-sm text-white border border-white rounded-2xl px-4 py-2 hover:bg-white/10 transition-all focus:ring-2 focus:ring-white/20 whitespace-nowrap"
           >
             <span>{lang === "fr" ? "AR" : "FR"}</span>
+            <Image src="/globe.svg" alt="language" width={20} height={20} />
           </button>
 
           <a
             href={`tel:${clinicConfig.phone}`}
-            className="inline-flex items-center gap-2 bg-[#CBDFE4] text-brand rounded-2xl px-4 py-2 text-sm font-bold hover:bg-[#CBDFE4]/90 transition-all whitespace-nowrap shadow-lg"
+            className="inline-flex items-center gap-2 bg-accent text-brand rounded-2xl px-4 py-2 text-sm font-bold hover:bg-accent/90 transition-all whitespace-nowrap shadow-lg"
           >
             <Phone className="w-4 h-4 animate-pulse shrink-0" />
             <span dir="ltr">{clinicConfig.phone}</span>

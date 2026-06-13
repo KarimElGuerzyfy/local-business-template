@@ -1,87 +1,154 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "../LanguageContext";
-import clinicConfig from "../../clinic.config";
-import { Phone, MapPin, ArrowRight, ArrowLeft } from "lucide-react";
+import clinicConfig from "@/clinic.config";
+import { Phone, ArrowRight, ArrowLeft, Star } from "lucide-react";
 
 const Hero = () => {
-  const { lang, isRTL } = useLanguage();
+  const { lang, isRTL } = useLanguage() as {
+    lang: "fr" | "ar";
+    isRTL: boolean;
+  };
 
-  // Guard values against config definition gaps
-  const name = clinicConfig.clinicName?.[lang] || clinicConfig.name?.[lang] || "";
-  const specialty = clinicConfig.specialty?.[lang] || "";
-  const neighborhood = clinicConfig.neighborhood?.[lang] || "";
-  const secondaryLabel = lang === "fr" ? "Voir nos services" : "خدماتنا";
+  const name = clinicConfig.clinicName[lang];
+  const specialty = clinicConfig.specialty[lang];
+  const tagline = clinicConfig.tagline[lang];
+  const stats = clinicConfig.stats[lang];
+  const address = clinicConfig.address[lang];
+  const rating = clinicConfig.rating;
+
+  const callLabel = lang === "fr" ? "Pour Réserver" : "اتصل للحجز";
+  const servicesLabel = lang === "fr" ? "Nos Services" : "خدماتنا";
+  const reviewLabel =
+    lang === "fr"
+      ? `${rating.score} (${rating.count} avis sur ${rating.platform})`
+      : `${rating.score} (${rating.count} تقييم على ${rating.platform})`;
 
   return (
     <section
       id="hero"
       dir={isRTL ? "rtl" : "ltr"}
-      className="relative overflow-hidden w-full text-white py-16 md:py-28 lg:py-36"
-      style={{ background: "linear-gradient(135deg, #0f766e 0%, #0d9488 60%, #0891b2 100%)" }}
+      className="relative overflow-hidden w-full text-white flex flex-col bg-brand"
     >
-      {/* Visual Design Elements: Background Glow Patterns */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-cyan-300 blur-3xl" />
+      {/* Background SVG */}
+      <div className={`absolute inset-0 w-full h-full pointer-events-none ${isRTL ? "scale-x-[-1]" : ""}`}>
+        <Image
+          src="/hero-bg.svg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
-        
-        {/* Text Content Block (Flipped natively by browser dir property) */}
-        <div className="w-full md:w-1/2 flex flex-col items-start text-center md:text-start gap-5">
-          
-          {/* Subtle Location Tag */}
-          <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide border border-white/10 self-center md:self-start">
-            <MapPin className="w-3.5 h-3.5 text-cyan-200" />
-            <span>{neighborhood}</span>
-          </div>
+      {/* Main Content Container */}
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end px-4 md:px-8 pt-10 md:pt-20 pb-0 w-full">
 
-          <h1 className="w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+        {/* Left: Text Content Layout */}
+        <div className="w-full md:w-1/2 flex flex-col pb-10 lg:pb-20 md:pr-8">
+
+          {/* Name */}
+          <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-secondary">
             {name}
           </h1>
-          
-          <p className="w-full text-lg sm:text-xl text-teal-100 max-w-xl font-medium leading-relaxed">
+
+          {/* Specialty */}
+          <h2 className="mb-8 text-xl lg:text-3xl font-bold text-secondary">
             {specialty}
+          </h2>
+
+          {/* Tagline */}
+          <p className="mb-2 text-xl text-white font-medium leading-relaxed">
+            {tagline}
           </p>
 
-          {/* Frictionless Conversion Area */}
-          <div className="w-full flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-4">
+          {/* Stats Row */}
+          <div className="flex items-center py-4 w-full">
+            {stats.map((stat, index) => (
+              <div key={index} className="flex items-center min-w-0 overflow-hidden">
+                <div className="flex flex-col pe-1 md:pe-6 min-w-0">
+                  <span className="text-2xl font-extrabold text-white">{stat.value}</span>
+                  <span className="text-xs md:text-sm text-white font-medium leading-tight">{stat.label}</span>
+                </div>
+                {index < stats.length - 1 && (
+                  <div className="h-16 w-0.5 rounded-full bg-white/30 mx-2 md:mx-6 shrink-0" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
             <a
               href={`tel:${clinicConfig.phone}`}
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-white text-teal-700 rounded-xl px-8 py-4 text-base font-bold shadow-xl shadow-teal-950/20 hover:bg-teal-50 hover:scale-[1.02] active:scale-[0.99] transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-accent text-brand rounded-xl px-5 py-2 text-sm font-semibold hover:bg-accent/80 transition-all w-full sm:w-auto"
             >
-              <Phone className="w-5 h-5 text-teal-600 animate-pulse flex-shrink-0" />
-              <span dir="ltr">{clinicConfig.phone}</span>
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>{callLabel}</span>
             </a>
 
             <a
               href="#services"
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-xl px-6 py-4 text-base font-semibold hover:bg-white/20 transition-all group"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/40 text-white rounded-xl px-5 py-2 text-sm font-semibold hover:bg-white/20 transition-all group w-full sm:w-auto"
             >
-              <span>{secondaryLabel}</span>
+              <span>{servicesLabel}</span>
               {isRTL ? (
-                <ArrowLeft className="w-4 h-4 text-teal-200 transform group-hover:-translate-x-1 transition-transform" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               ) : (
-                <ArrowRight className="w-4 h-4 text-teal-200 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               )}
             </a>
           </div>
+
+          {/* Star Rating */}
+          <a
+            href={rating.reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-1 hover:opacity-80 transition-opacity md:self-start self-center"
+          >
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <span className="text-sm text-white/80 font-medium">{reviewLabel}</span>
+          </a>
         </div>
 
-        {/* Image Frame Holder Block */}
-        <div className="w-full md:w-1/2 flex justify-center items-center">
-          <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md p-3 shadow-2xl shadow-teal-950/30">
-            <div className="w-full h-full rounded-xl bg-gradient-to-br from-teal-800/40 to-cyan-900/40 border border-white/5 flex flex-col items-center justify-center text-teal-200 text-sm font-semibold gap-3 text-center px-4">
-              <div className="w-16 h-16 rounded-full bg-teal-700/30 flex items-center justify-center border border-teal-500/20">
-                <span className="text-xl">🩺</span>
-              </div>
-              <span>Placeholder: Image of Doctor / Clinic</span>
-            </div>
+        {/* Desktop: Doctor Vector Illustration */}
+        <div className="flex w-full md:w-1/2 justify-center md:justify-end items-end">
+          <div className="relative w-64 sm:w-80 md:w-96 lg:w-120 h-87.5 sm:h-105 md:h-125 lg:h-145">
+            <Image
+              src="/doctor.svg"
+              alt={name}
+              fill
+              className="object-contain object-bottom"
+              priority
+            />
           </div>
         </div>
-
       </div>
+
+        {/* Scrolling Address Strip */}
+        <div className="relative z-10 w-full bg-brand border-t border-white/10 py-3 overflow-hidden">
+          <div 
+            key={lang} /* Crucial: Forces a re-mount on language change to prevent the animation from freezing */
+            className="flex whitespace-nowrap"
+            style={{ 
+              animation: isRTL 
+                ? "marquee-rtl 20s linear infinite" 
+                : "marquee-ltr 20s linear infinite" 
+            }}
+          >
+            {[...Array(6)].map((_, i) => (
+              <span key={i} className="inline-flex items-center gap-3 px-8 text-sm text-white font-medium">
+                {address}
+              </span>
+            ))}
+          </div>
+        </div>
     </section>
   );
 };

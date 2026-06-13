@@ -3,11 +3,8 @@
 @theme {
   /* Colors */
   --color-brand: #001841;
-  --color-teal-primary: #0d9488;
-  --color-teal-dark: #0f766e;
-  --color-teal-light: #ccfbf1;
-  --color-gold: #b45309;
-  --color-gold-light: #fef3c7;
+  --color-accent: #CBDFE4;
+  --color-muted: #BCBCBC;
   --color-white: #ffffff;
   --color-slate: #f8fafc;
   --color-text-dark: #1e293b;
@@ -27,4 +24,16 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Default LTR animation (Scrolls Left) */
+@keyframes marquee-ltr {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Dedicated RTL animation (Scrolls Right) */
+@keyframes marquee-rtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
 }

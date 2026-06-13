@@ -10,7 +10,7 @@ clinicName: {
 },
   specialty: {
     fr: "Dentiste & Orthodontiste à Fès",
-    ar: "طبيب أسنان وتقويم في فاس",
+    ar: " طبيب وجراح أسنان ",
   },
 
   // Contact
@@ -33,6 +33,25 @@ clinicName: {
 
   // Since
   since: "2019",
+
+tagline: {
+  fr: "Des soins attentionnés. Des résultats exceptionnels.",
+  ar: "رعاية متميزة. نتائج استثنائية.",
+},
+
+  // Stats
+stats: {
+  fr: [
+    { value: "+500", label: "Interventions réalisées" },
+    { value: "+1000", label: "Patients satisfaits" },
+    { value: "+200", label: "Interventions annuelles" },
+  ],
+  ar: [
+    { value: "+500", label: "العمليات المجراة" },
+    { value: "+1000", label: "مرضى راضون" },
+    { value: "+200", label: "العمليات السنوية" },
+  ],
+},
 
   // Hours
   hours: {
@@ -63,7 +82,7 @@ clinicName: {
   rating: {
     score: "4.9",
     count: "40+",
-    platform: "Google Maps",
+    platform: "Google",
     reviewUrl: "https://www.google.com/maps/place/Dr.+Marbouh+Amine/@34.0349796,-4.9973869,948m/data=!3m1!1e3!4m8!3m7!1s0xd9f8b9dc6d79b37:0xbe149fa93faee04b!8m2!3d34.0349796!4d-4.9973869!9m1!1b1!16s%2Fg%2F11kfc2v0wn?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D",
   },
 
