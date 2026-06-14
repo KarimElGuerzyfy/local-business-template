@@ -26,14 +26,11 @@ body {
   color: var(--foreground);
 }
 
-/* Default LTR animation (Scrolls Left) */
 @keyframes marquee-ltr {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Dedicated RTL animation (Scrolls Right) */
-@keyframes marquee-rtl {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(50%); }
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    transform: translateX(-50%); 
+  }
 }

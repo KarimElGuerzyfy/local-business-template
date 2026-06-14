@@ -9,7 +9,7 @@ clinicName: {
   ar: "د. أمين مربوح"
 },
   specialty: {
-    fr: "Dentiste & Orthodontiste à Fès",
+    fr: "Dentiste & Orthodontiste",
     ar: " طبيب وجراح أسنان ",
   },
 

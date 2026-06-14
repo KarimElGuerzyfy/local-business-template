@@ -68,8 +68,8 @@ const Hero = () => {
             {stats.map((stat, index) => (
               <div key={index} className="flex items-center min-w-0 overflow-hidden">
                 <div className="flex flex-col pe-1 md:pe-6 min-w-0">
-                  <span className="text-2xl font-extrabold text-white">{stat.value}</span>
-                  <span className="text-xs md:text-sm text-white font-medium leading-tight">{stat.label}</span>
+                  <span className="text-2xl text-white">{stat.value}</span>
+                  <span className="text-xs md:text-sm text-white leading-tight">{stat.label}</span>
                 </div>
                 {index < stats.length - 1 && (
                   <div className="h-16 w-0.5 rounded-full bg-white/30 mx-2 md:mx-6 shrink-0" />
@@ -82,7 +82,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
             <a
               href={`tel:${clinicConfig.phone}`}
-              className="inline-flex items-center justify-center gap-2 bg-accent text-brand rounded-xl px-5 py-2 text-sm font-semibold hover:bg-accent/80 transition-all w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-accent text-brand rounded-xl px-3 py-3 text-sm  hover:bg-accent/80 transition-all w-full sm:w-auto"
             >
               <Phone className="w-4 h-4 shrink-0" />
               <span>{callLabel}</span>
@@ -90,7 +90,7 @@ const Hero = () => {
 
             <a
               href="#services"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/40 text-white rounded-xl px-5 py-2 text-sm font-semibold hover:bg-white/20 transition-all group w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 border border-white text-white rounded-xl px-3 py-3 text-sm  hover:bg-white/5 transition-all group w-full sm:w-auto"
             >
               <span>{servicesLabel}</span>
               {isRTL ? (
@@ -113,7 +113,7 @@ const Hero = () => {
                 <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span className="text-sm text-white/80 font-medium">{reviewLabel}</span>
+            <span className="text-sm text-muted">{reviewLabel}</span>
           </a>
         </div>
 
@@ -131,24 +131,34 @@ const Hero = () => {
         </div>
       </div>
 
-        {/* Scrolling Address Strip */}
-        <div className="relative z-10 w-full bg-brand border-t border-white/10 py-3 overflow-hidden">
-          <div 
-            key={lang} /* Crucial: Forces a re-mount on language change to prevent the animation from freezing */
-            className="flex whitespace-nowrap"
-            style={{ 
-              animation: isRTL 
-                ? "marquee-rtl 20s linear infinite" 
-                : "marquee-ltr 20s linear infinite" 
-            }}
-          >
-            {[...Array(6)].map((_, i) => (
-              <span key={i} className="inline-flex items-center gap-3 px-8 text-sm text-white font-medium">
+      {/* Scrolling Address Strip */}
+      <div className="relative z-10 w-full bg-brand border-t border-white/10 py-3 overflow-hidden" dir="ltr">
+        <div
+          key={lang}
+          className="flex w-max will-change-transform"
+          style={{
+            animation: "marquee-ltr 30s linear infinite",
+          }}
+        >
+          {/* First Set (10 Items) */}
+          <div className="flex shrink-0">
+            {[...Array(10)].map((_, i) => (
+              <span key={`set1-${i}`} className="inline-flex items-center gap-3 px-8 text-sm text-white font-medium shrink-0">
+                {address}
+              </span>
+            ))}
+          </div>
+          
+          {/* Second Set (10 Items) */}
+          <div className="flex shrink-0" aria-hidden="true">
+            {[...Array(10)].map((_, i) => (
+              <span key={`set2-${i}`} className="inline-flex items-center gap-3 px-8 text-sm text-white font-medium shrink-0">
                 {address}
               </span>
             ))}
           </div>
         </div>
+      </div>
     </section>
   );
 };
