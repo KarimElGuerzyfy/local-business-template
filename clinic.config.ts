@@ -4,10 +4,10 @@ export const clinicConfig = {
     fr: "Dr. Amine Marbouh",
     ar: "د. أمين مربوح",
   },
-clinicName: {
-  fr: "Dr. Amine Marbouh",
-  ar: "د. أمين مربوح"
-},
+  clinicName: {
+    fr: "Dr. Amine Marbouh",
+    ar: "د. أمين مربوح"
+  },
   specialty: {
     fr: "Dentiste & Orthodontiste",
     ar: " طبيب وجراح أسنان ",
@@ -34,24 +34,24 @@ clinicName: {
   // Since
   since: "2019",
 
-tagline: {
-  fr: "Des soins attentionnés. Des résultats exceptionnels.",
-  ar: "رعاية متميزة. نتائج استثنائية.",
-},
+  tagline: {
+    fr: "Des soins attentionnés. Des résultats exceptionnels.",
+    ar: "رعاية متميزة. نتائج استثنائية.",
+  },
 
   // Stats
-stats: {
-  fr: [
-    { value: "+500", label: "Interventions réalisées" },
-    { value: "+1000", label: "Patients satisfaits" },
-    { value: "+200", label: "Interventions annuelles" },
-  ],
-  ar: [
-    { value: "+500", label: "العمليات المجراة" },
-    { value: "+1000", label: "مرضى راضون" },
-    { value: "+200", label: "العمليات السنوية" },
-  ],
-},
+  stats: {
+    fr: [
+      { value: "+500", label: "Interventions réalisées" },
+      { value: "+1000", label: "Patients satisfaits" },
+      { value: "+200", label: "Interventions annuelles" },
+    ],
+    ar: [
+      { value: "+500", label: "العمليات المجراة" },
+      { value: "+1000", label: "مرضى راضون" },
+      { value: "+200", label: "العمليات السنوية" },
+    ],
+  },
 
   // Hours
   hours: {
@@ -86,95 +86,107 @@ stats: {
     reviewUrl: "https://www.google.com/maps/place/Dr.+Marbouh+Amine/@34.0349796,-4.9973869,948m/data=!3m1!1e3!4m8!3m7!1s0xd9f8b9dc6d79b37:0xbe149fa93faee04b!8m2!3d34.0349796!4d-4.9973869!9m1!1b1!16s%2Fg%2F11kfc2v0wn?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D",
   },
 
+  // Service images (language-independent, order matches services arrays below)
+  serviceImages: [
+    "/services/diagnostic.jpg",
+    "/services/decay.jpg",
+    "/services/orthodontie.jpg",
+    "/services/whitening.jpg",
+    "/services/implant.jpg",
+    "/services/removal.jpg",
+    "/services/crowns.jpg",
+    "/services/kids.jpg",
+  ],
+
   // Services
   services: {
     fr: [
       {
         icon: "stethoscope",
-        title: "Consultation & Bilan",
-        description: "Examen complet de vos dents et gencives avec diagnostic précis.",
+        title: "Consultation & Diagnostic",
+        description: "Examen clinique complet des dents et des gencives pour un diagnostic précis.",
       },
       {
         icon: "shield",
-        title: "Soins & Caries",
-        description: "Traitement des caries, dévitalisation et soins préventifs.",
+        title: "Soins Conservateurs & Restaurateurs",
+        description: "Prise en charge des caries, restaurations esthétiques (plombages blancs) et prophylaxie.",
       },
       {
         icon: "align-center",
         title: "Orthodontie",
-        description: "Bagues conventionnelles et aligneurs transparents pour tous les âges.",
+        description: "Orthodontie conventionnelle et aligneurs invisibles pour tous les âges.",
       },
       {
         icon: "sparkles",
         title: "Blanchiment Dentaire",
-        description: "Blanchiment professionnel pour un sourire éclatant et naturel.",
+        description: "Éclaircissement professionnel pour un sourire éclatant, sain et naturel.",
       },
       {
         icon: "anchor",
-        title: "Implants Dentaires",
-        description: "Remplacement durable et naturel des dents manquantes.",
+        title: "Implantologie",
+        description: "Remplacement permanent, fixe et naturel des dents manquantes.",
       },
       {
-        icon: "scissors",
-        title: "Extraction & Chirurgie",
-        description: "Extractions et interventions chirurgicales précises et sans douleur.",
+        icon: "stethoscope",
+        title: "Chirurgie Orale",
+        description: "Extractions dentaires complexes et interventions chirurgicales avec précision et confort.",
       },
       {
         icon: "circle",
-        title: "Couronnes & Prothèses",
-        description: "Couronnes zircone et prothèses esthétiques sur mesure.",
+        title: "Prothèses Dentaires",
+        description: "Couronnes en zircone, facettes et prothèses esthétiques personnalisées.",
       },
       {
         icon: "heart",
-        title: "Soins Pédiatriques",
-        description: "Soins doux et adaptés pour les enfants dès le plus jeune âge.",
+        title: "Pédodontie",
+        description: "Des soins doux, préventifs et adaptés aux enfants dès le plus jeune âge.",
       },
     ],
     ar: [
       {
         icon: "stethoscope",
         title: "الفحص والتشخيص",
-        description: "فحص شامل للأسنان واللثة مع تشخيص دقيق.",
+        description: "فحص شامل ودقيق للأسنان واللثة للكشف المبكر وتحديد خطة العلاج المناسبة.",
       },
       {
         icon: "shield",
-        title: "علاج التسوس",
-        description: "علاج التسوس وتحشية الأسنان والوقاية الشاملة.",
+        title: "علاج وترميم الأسنان",
+        description: "علاج التسوس، الحشوات التجميلية والوقائية، والعناية الشاملة بصحة الفم.",
       },
       {
         icon: "align-center",
         title: "تقويم الأسنان",
-        description: "تقويم تقليدي وشفافات لجميع الأعمار.",
+        description: "تقويم الأسنان الثابت والتقويم الشفاف الحديث لجميع الأعمار.",
       },
       {
         icon: "sparkles",
         title: "تبييض الأسنان",
-        description: "تبييض احترافي لابتسامة مشرقة وطبيعية.",
+        description: "تبييض أسنان احترافي وآمن للحصول على ابتسامة مشرقة وطبيعية.",
       },
       {
         icon: "anchor",
         title: "زراعة الأسنان",
-        description: "تعويض دائم وطبيعي للأسنان المفقودة.",
+        description: "تعويض دائم وثابت للأسنان المفقودة واستعادة الوظيفة والمظهر الطبيعي.",
       },
       {
-        icon: "scissors",
-        title: "الخلع والجراحة",
-        description: "خلع الأسنان والتدخلات الجراحية بدقة وبدون ألم.",
+        icon: "stethoscope",
+        title: "الخلع والجراحة الفموية",
+        description: "خلع الأسنان والتدخلات الجراحية الفموية بدقة عالية وأمان تام.",
       },
       {
         icon: "circle",
-        title: "التيجان والأطقم",
-        description: "تيجان الزيركون وأطقم الأسنان الجمالية المخصصة.",
+        title: "تركيبات الأسنان",
+        description: "تيجان الزيركون، القشور الخزفية (الفينير)، والتركيبات التجميلية المخصصة.",
       },
       {
         icon: "heart",
         title: "طب أسنان الأطفال",
-        description: "رعاية لطيفة ومناسبة للأطفال منذ السن المبكرة.",
+        description: "رعاية سنية لطيفة، وقائية ومخصصة للأطفال في بيئة مريحة منذ سن مبكرة.",
       },
     ],
   },
 
-  // Testimonials — selected from real Google reviews
+  // Testimonials
   testimonials: {
     fr: [
       {
@@ -196,7 +208,7 @@ stats: {
         author: "سلمى صغير",
       },
       {
-        text: "استقبال دافئ وعيادة نظيفة جداً، والأهم طبيب محترف جداً ومهتم. العلاجات تتم بدقة كبيرة وبدون ألم.",
+        text: "استقبال دافئ وعيادة نظيفة جداً، والأهم طبيب محترف جداً ومهتم. العلاجات تتم بدقة وبدون ألم.",
         author: "ياسين صغير",
       },
       {

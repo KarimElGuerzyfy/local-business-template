@@ -34,3 +34,13 @@ body {
     transform: translateX(-50%); 
   }
 }
+
+/* Hero address strip speed control */
+@utility animate-marquee-hero {
+  animation: marquee-ltr 50s linear infinite !important;
+}
+
+/* Insurance strip speed control */
+@utility animate-marquee-services {
+  animation: marquee-ltr 60s linear infinite !important;
+}

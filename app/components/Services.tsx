@@ -1,106 +1,123 @@
 "use client";
 
 import { useLanguage } from "../LanguageContext";
-import clinicConfig from "../../clinic.config";
-import {
-  Stethoscope,
-  Shield,
-  AlignCenter,
-  Sparkles,
-  Anchor,
-  Scissors,
-  Circle,
-  Heart,
-  CreditCard,
-} from "lucide-react";
+import clinicConfig from "@/clinic.config";
+import { ShieldCheck } from "lucide-react"; // More relevant icon for insurance/mutuelles
+import ServiceCard from "./ServiceCard";
 
-const iconMap: Record<string, React.ReactNode> = {
-  stethoscope: <Stethoscope className="w-7 h-7" />,
-  shield: <Shield className="w-7 h-7" />,
-  "align-center": <AlignCenter className="w-7 h-7" />,
-  sparkles: <Sparkles className="w-7 h-7" />,
-  anchor: <Anchor className="w-7 h-7" />,
-  scissors: <Scissors className="w-7 h-7" />,
-  circle: <Circle className="w-7 h-7" />,
-  heart: <Heart className="w-7 h-7" />,
-};
+// Fallback array to prevent crashes if images are missing in config
+const fallbackImages = [
+  "/services/1.jpg",
+  "/services/2.jpg",
+  "/services/3.jpg",
+  "/services/4.jpg",
+  "/services/5.jpg",
+  "/services/6.jpg",
+  "/services/7.jpg",
+  "/services/8.jpg",
+];
 
 const Services = () => {
-  const { lang, isRTL } = useLanguage();
+  const { lang, isRTL } = useLanguage() as {
+    lang: "fr" | "ar";
+    isRTL: boolean;
+  };
 
-  const services = clinicConfig.services[lang];
-  const insurance = clinicConfig.insurance;
+  const services = clinicConfig.services[lang] || [];
+  const serviceImages = clinicConfig.serviceImages || fallbackImages;
+  const insurance = clinicConfig.insurance || [];
 
   const sectionTitle = lang === "fr" ? "Nos Services" : "خدماتنا";
   const sectionSubtitle =
     lang === "fr"
       ? "Des soins dentaires complets pour toute la famille"
       : "رعاية أسنان شاملة لجميع أفراد العائلة";
+      
+  // Correct Moroccan medical industry localization
   const insuranceLabel =
-    lang === "fr" ? "Cartes acceptées" : "البطاقات المقبولة";
+    lang === "fr" ? "Mutuelles acceptées" : "المؤسسات التعاضدية المقبولة";
 
   return (
     <section
       id="services"
       dir={isRTL ? "rtl" : "ltr"}
-      className="w-full py-16 md:py-24 bg-gray-50"
+      className="w-full py-16 md:py-24 bg-white"
     >
       <div className="container mx-auto px-4 max-w-6xl">
 
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand tracking-tight">
             {sectionTitle}
           </h2>
-          <p className="mt-3 text-gray-500 text-base md:text-lg max-w-xl mx-auto">
+          <p className="mt-3 text-[#162D54] font-semibold text-base md:text-lg max-w-xl mx-auto">
             {sectionSubtitle}
           </p>
-          <div className="mt-4 mx-auto w-16 h-1 rounded-full" style={{ backgroundColor: "#0d9488" }} />
+          <div className="mt-4 mx-auto w-full h-px bg-brand" />
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col gap-4"
-            >
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center text-white flex-shrink-0"
-                style={{ backgroundColor: "#0d9488" }}
-              >
-                {iconMap[service.icon] ?? <Stethoscope className="w-7 h-7" />}
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-base font-bold text-gray-900">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </div>
+            <ServiceCard
+              key={`${lang}-${index}`} // Prevents element DOM mixing during language switch
+              image={serviceImages[index] || "/services/fallback.jpg"}
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+            />
           ))}
         </div>
 
-        {/* Insurance Strip */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 bg-white border border-gray-100 rounded-2xl px-8 py-5 shadow-sm">
-          <div className="flex items-center gap-2 text-gray-500 text-sm font-semibold">
-            <CreditCard className="w-5 h-5" style={{ color: "#0d9488" }} />
-            <span>{insuranceLabel}</span>
-          </div>
-          <div className="flex items-center gap-3">
-            {insurance.map((badge) => (
-              <span
-                key={badge}
-                className="text-sm font-bold px-4 py-1.5 rounded-full border"
-                style={{ color: "#0d9488", borderColor: "#0d9488", backgroundColor: "#f0fdfa" }}
-              >
-                {badge}
+        {/* Insurance Marquee Strip — Completely isolated from RTL container shifts */}
+        {insurance.length > 0 && (
+          <div 
+            dir="ltr" 
+            className="mt-16 -mx-[calc(50vw-50%)] w-screen bg-brand overflow-hidden py-4 relative select-none"
+          >
+            {/* Static label — Left-pinned, absolute on top layer */}
+            <div className="absolute left-0 top-0 bottom-0 z-20 flex items-center gap-2 bg-brand pl-6 pr-4">
+              <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+              <span className="text-sm font-bold text-accent whitespace-nowrap">
+                Mutuelles acceptées
               </span>
-            ))}
+            </div>
+
+            {/* Isolated, Correctly Positioned Fade Gradient Sibling */}
+            <div className="absolute left-[175px] top-0 bottom-0 w-12 z-20 bg-gradient-to-r from-brand to-transparent pointer-events-none" />
+
+            {/* Scrolling track — Shifted left-padding to start exactly after the static block */}
+            <div className="flex w-max animate-marquee-services pl-[190px]">
+              
+              {/* First Half Track */}
+              {Array.from({ length: 20 }).flatMap((_, i) =>
+                insurance.map((badge) => (
+                  <span
+                    key={`track1-${badge}-${i}`}
+                    className="flex items-center gap-2 mx-8 text-sm font-bold text-accent whitespace-nowrap"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+                    {badge}
+                  </span>
+                ))
+              )}
+
+              {/* Second Half Track */}
+              {Array.from({ length: 20 }).flatMap((_, i) =>
+                insurance.map((badge) => (
+                  <span
+                    key={`track2-${badge}-${i}`}
+                    className="flex items-center gap-2 mx-8 text-sm font-bold text-accent whitespace-nowrap"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+                    {badge}
+                  </span>
+                ))
+              )}
+
+            </div>
           </div>
-        </div>
+        )}
 
       </div>
     </section>

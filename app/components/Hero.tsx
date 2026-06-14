@@ -43,7 +43,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end px-4 md:px-8 pt-10 md:pt-20 pb-0 w-full">
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end px-4 md:px-8 pt-10 md:pt-45 pb-0 w-full">
 
         {/* Left: Text Content Layout */}
         <div className="w-full md:w-1/2 flex flex-col pb-10 lg:pb-20 md:pr-8">
@@ -135,10 +135,7 @@ const Hero = () => {
       <div className="relative z-10 w-full bg-brand border-t border-white/10 py-3 overflow-hidden" dir="ltr">
         <div
           key={lang}
-          className="flex w-max will-change-transform"
-          style={{
-            animation: "marquee-ltr 30s linear infinite",
-          }}
+          className="flex w-max will-change-transform animate-marquee-hero"
         >
           {/* First Set (10 Items) */}
           <div className="flex shrink-0">
