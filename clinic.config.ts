@@ -108,7 +108,7 @@ export const clinicConfig = {
       },
       {
         icon: "shield",
-        title: "Soins Conservateurs & Restaurateurs",
+        title: "Soins Conservateurs",
         description: "Prise en charge des caries, restaurations esthétiques (plombages blancs) et prophylaxie.",
       },
       {
