@@ -100,7 +100,7 @@ const Services = () => {
       dir={isRTL ? "rtl" : "ltr"}
       className="w-full py-16 md:py-24 bg-lightbg"
     >
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-7xl">
 
         {/* Section Header */}
         <div className="text-center mb-10">

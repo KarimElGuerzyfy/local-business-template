@@ -81,7 +81,7 @@ export const clinicConfig = {
   // Reviews
   rating: {
     score: "4.9",
-    count: "40+",
+    count: "40",
     platform: "Google",
     reviewUrl: "https://www.google.com/maps/place/Dr.+Marbouh+Amine/@34.0349796,-4.9973869,948m/data=!3m1!1e3!4m8!3m7!1s0xd9f8b9dc6d79b37:0xbe149fa93faee04b!8m2!3d34.0349796!4d-4.9973869!9m1!1b1!16s%2Fg%2F11kfc2v0wn?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D",
   },
@@ -190,31 +190,63 @@ export const clinicConfig = {
   testimonials: {
     fr: [
       {
-        text: "Un immense merci au Dr Marbouh pour son professionnalisme et sa grande patience. Un dentiste humain, attentif et très compétent. Je le recommande vivement.",
-        author: "Salma Sghyar",
-      },
-      {
-        text: "Un accueil chaleureux, un cabinet très propre et surtout un médecin très professionnel et attentionné. Les soins sont réalisés avec grande précision et sans douleur.",
+        text: "Accueil chaleureux, cabinet très propre et surtout un médecin très professionnel et à l’écoute. Les soins sont faits avec beaucoup de précision et sans douleur. Je recommande vivement.",
         author: "Yassine Sghyar",
       },
       {
-        text: "Je recommande vivement le Dr Marbouh à toute personne cherchant des soins dentaires de qualité.",
-        author: "Imane El Ansari",
+        text: "Thank you to the doctor and the dental assistant for their professionalism and kindness.",
+        author: "Mehdi Meniar",
       },
+      {
+        text: "Le docteur était professionnel. Le service était rapide et efficace. La clinique est propre et confortable. Le personnel est amical. C'était une expérience formidable. Je recommande vivement de consulter ce docteur.",
+        author: "Wahiba Sed",
+      },
+      {
+        text: "Excellent service ! L'équipe est très sympathique et le dentiste est très compétent. Je recommande vivement.",
+        author: "Jimmy Hamid",
+      },
+      {
+        text: "Très bon service et reception, une main très souple. Je recommande Docteur Marbouh fortement à toute personne.",
+        author: "Achraf Gaizi",
+      },
+      {
+        text: "Meilleur dentiste sur fes tres bonne experience.",
+        author: "Oueld Hamid",
+      },
+      {
+        text: "Bon service prend son temps avec le patient un traitement de qualité tbarkllah 3lih.",
+        author: "Hamza Regragui",
+      }
     ],
     ar: [
       {
-        text: "شكراً جزيلاً للدكتور مربوح على احترافيته وصبره الكبير. طبيب إنساني ومهتم وكفؤ جداً. أنصح به بشدة.",
-        author: "سلمى صغير",
+        text: "الاستقبل تبارك الله غزال، والكلينيك نقي بزاف. والطبيب تبارك الله عليه بروفيسيونيل، كايسمع للمريض وكايخدم داكشي متقون وبلا حريق. كانصح بيه بزاف 👍",
+        author: "ياسين صغير / سليم رامو",
       },
       {
-        text: "استقبال دافئ وعيادة نظيفة جداً، والأهم طبيب محترف جداً ومهتم. العلاجات تتم بدقة وبدون ألم.",
-        author: "ياسين صغير",
+        text: "كنشكر بزاف الطبيب والمساعدة ديالو على المعاملة الزوينة والظرافة ديالهم، ناس قمة في الاحترافية.",
+        author: "مهدي منيار",
       },
       {
-        text: "أنصح بشدة بالدكتور مربوح لكل من يبحث عن رعاية أسنان عالية الجودة.",
-        author: "إيمان الأنصاري",
+        text: "الطبيب كفء، والخدمة عندهم سريعة ونقية. الكلينيك مريح ونقي بزاف، والفرقة كاملة ظريفة وبشوشة. صراحة تجربة ممتازة وكنصح أي واحد يمشي عند هاد الطبيب.",
+        author: "وهيبة سد",
       },
+      {
+        text: "خدمة طوب! الفرقة لي خداّمة تما ظراف بزاف، والطبيب متمكن من الخدمة ديالو وكفء. كانصح بيه وعيني مغمضين.",
+        author: "جيمي حميد",
+      },
+      {
+        text: "الخدمة والاستقبال في المستوى، والطبيب إيدو خفيفة ما كاتحس بوالو تبارك الله. كانصح بالدكتور مربوح بزاف.",
+        author: "أشرف كايزي",
+      },
+      {
+        text: "أحسن طبيب سنان ففاس، صراحة تجربة زوينة بزاف معاه.",
+        author: "ولد حميد",
+      },
+      {
+        text: "خدمة ممتازة، كاييعطي الوقت الكافي للمريض والخدمة ديالو كاليتي، تبارك الله عليه.",
+        author: "حمزة ركراكي",
+      }
     ],
   },
 };
