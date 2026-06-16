@@ -18,32 +18,33 @@ const TestimonialCard = ({ text, author }: TestimonialCardProps) => {
   return (
     <div className="w-[280px] h-[300px] rounded-3xl bg-white flex flex-col shrink-0 scroll-snap-align-start p-4 shadow-[8px_8px_10px_0px_rgba(0,0,0,0.1)] mb-4">
 
-      {/* Top row — avatar + quote icon layout */}
-      <div className={`flex items-start justify-between ${isRTL ? "flex-row-reverse" : "flex-row"}`}>
+      {/* Top row — Handled cleanly via native document direction layout flow */}
+      <div className="flex items-start justify-between flex-row">
         {/* Avatar circle with initial */}
         <div className="w-[42px] h-[42px] rounded-full bg-brand flex items-center justify-center shrink-0">
           <span className="text-white font-bold text-base">
             {avatarLetter}
           </span>
         </div>
+        
         {/* Quote icon flipped natively under RTL logic paths */}
         <Quote className={`w-7 h-7 text-brand/40 ${isRTL ? "scale-x-[-1]" : ""}`} />
       </div>
 
-      {/* Author name */}
-      <h3 className={`text-brand text-xl font-semibold mt-3 w-full ${isRTL ? "text-right" : "text-left"}`}>
+      {/* Author name — text direction handles alignment inherently */}
+      <h3 className="text-brand text-xl font-semibold mt-3 w-full">
         {author}
       </h3>
 
-      {/* Stars */}
-      <div className={`flex items-center gap-0.5 mt-1 w-full ${isRTL ? "justify-end" : "justify-start"}`}>
+      {/* Stars — Flex items obey document direction order natively */}
+      <div className="flex items-center gap-0.5 mt-1 w-full">
         {[...Array(5)].map((_, i) => (
           <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
         ))}
       </div>
 
-      {/* Review text — Swapped compile-breaking color variable to native CSS grid token */}
-      <p className={`text-brand text-base font-medium leading-tight mt-4 flex-1 overflow-y-auto ${isRTL ? "text-right" : "text-left"}`}>
+      {/* Review text — Text direction handles block alignment natively */}
+      <p className="text-brand text-base font-medium leading-tight mt-4 flex-1 overflow-y-auto">
         {text}
       </p>
 
