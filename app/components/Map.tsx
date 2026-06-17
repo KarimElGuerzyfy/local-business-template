@@ -5,54 +5,73 @@ import clinicConfig from "../../clinic.config";
 import { MapPin } from "lucide-react";
 
 const Map = () => {
-  const { lang, isRTL } = useLanguage();
+  const { lang, isRTL } = useLanguage() as {
+    lang: "fr" | "ar";
+    isRTL: boolean;
+  };
 
-  const title = lang === "fr" ? "Notre Localisation" : "موقعنا";
-  const directions = lang === "fr" ? "Obtenir l'itinéraire" : "الحصول على الاتجاهات";
+  const labels = {
+    fr: {
+      title: "Notre Localisation",
+      directions: "Obtenir l'itinéraire",
+    },
+    ar: {
+      title: "موقعنا",
+      directions: "الحصول على الاتجاهات",
+    },
+  };
+
+  const t = labels[lang] || labels.fr;
 
   return (
     <section
       id="map"
       dir={isRTL ? "rtl" : "ltr"}
-      className="w-full py-16 md:py-24 bg-white"
+      className="w-full py-16 md:py-28 bg-lightbg"
     >
-      <div className="container mx-auto px-4 max-w-6xl">
+      {/* Width locked to 7xl to match system layout rules */}
+      <div className="container mx-auto px-4 max-w-7xl flex flex-col gap-2">
 
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-            {title}
+        {/* Section Header */}
+        <div className="text-center w-full">
+          {/* Title size fixed to 36px (text-4xl) with medium weight */}
+          <h2 className="text-brand font-medium text-4xl tracking-tight mb-5">
+            {t.title}
           </h2>
-          <p className="mt-3 text-gray-500 text-sm max-w-xl mx-auto">
+          <p className="text-brand text-xl font-medium max-w-2xl mx-auto leading-relaxed mb-1">
             {clinicConfig.address?.[lang] || ""}
           </p>
-          <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-teal-600" />
         </div>
 
-        {/* Map Container */}
-        <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-          <iframe
-            src={clinicConfig.googleMapsEmbed}
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <div className="bg-white px-6 py-4 flex justify-center">
-            
-            {/* FIXED STRUCTURE: Opening <a> tag restored */}
-            <a
-              href={clinicConfig.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm bg-teal-600 hover:bg-teal-700 transition-all shadow-md shadow-teal-600/10"
-            >
-              <MapPin className="w-4 h-4" />
-              {directions}
-            </a>
+        {/* Divider matching section width and color brand */}
+        <hr className="w-full border-t-2 border-brand mb-4 md:mb-2" />
+
+        {/* Map Canvas and Button Combo */}
+        <div className="w-full flex flex-col gap-4">
+          {/* Map iframe matching container width */}
+          <div className="w-full rounded-2xl overflow-hidden shadow-sm border border-brand/10 bg-white">
+            <iframe
+              src={clinicConfig.googleMapsEmbed}
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full block"
+            />
           </div>
+
+          {/* Action Link Button matching section width */}
+          <a
+            href={clinicConfig.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl text-white font-medium text-xl bg-brand hover:bg-brand/90 transition-all cursor-pointer shadow-md shadow-brand/10"
+          >
+            <MapPin className="w-5 h-5 shrink-0" />
+            <span>{t.directions}</span>
+          </a>
         </div>
 
       </div>
