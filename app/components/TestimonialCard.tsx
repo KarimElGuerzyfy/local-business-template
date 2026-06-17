@@ -16,12 +16,12 @@ const TestimonialCard = ({ text, author }: TestimonialCardProps) => {
   const avatarLetter = cleanAuthor.charAt(0).toUpperCase();
 
   return (
-    <div className="w-[280px] h-[300px] rounded-3xl bg-white flex flex-col shrink-0 scroll-snap-align-start p-4 shadow-[8px_8px_10px_0px_rgba(0,0,0,0.1)] mb-4">
+    <div className="w-70 h-75 rounded-3xl bg-white flex flex-col shrink-0 scroll-snap-align-start p-4 shadow-[8px_8px_10px_0px_rgba(0,0,0,0.1)] mb-4">
 
       {/* Top row — Handled cleanly via native document direction layout flow */}
       <div className="flex items-start justify-between flex-row">
         {/* Avatar circle with initial */}
-        <div className="w-[42px] h-[42px] rounded-full bg-brand flex items-center justify-center shrink-0">
+        <div className="w-10.5 h-10.5 rounded-full bg-brand flex items-center justify-center shrink-0">
           <span className="text-white font-bold text-base">
             {avatarLetter}
           </span>

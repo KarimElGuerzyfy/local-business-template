@@ -34,8 +34,8 @@ const ContactInfo = () => {
     <div dir={isRTL ? "rtl" : "ltr"} className="flex flex-col gap-6 w-full">
       
       {/* Title Block */}
-      <div className="flex flex-col gap-2">
-        <h3 className="text-white font-bold text-4xl">{t.title}</h3>
+      <div className="flex flex-col gap-2 md:mb-16">
+        <h3 className="text-accent font-bold text-4xl">{t.title}</h3>
         <p className="text-accent text-xl font-medium leading-relaxed">{t.subtitle}</p>
       </div>
 

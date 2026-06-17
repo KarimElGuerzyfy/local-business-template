@@ -38,7 +38,7 @@ const Contact = () => {
         </div>
 
         {/* Symmetrical Two Column Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="w-full">
             <ContactForm />
           </div>

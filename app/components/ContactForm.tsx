@@ -81,8 +81,7 @@ const ContactForm = () => {
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="flex flex-col gap-6 w-full">
-      {/* Form Title — Fixed color token to text-white */}
-      <h3 className="text-white font-bold text-4xl">{t.formTitle}</h3>
+      <h3 className="text-accent font-bold text-4xl">{t.formTitle}</h3>
 
       {submitted ? (
         <div className="flex items-center justify-center h-64 text-center border border-accent/20 rounded-xl bg-white/5 px-4 animate-fade-in">
@@ -98,8 +97,8 @@ const ContactForm = () => {
               name="name"
               placeholder={t.namePlaceholder}
               required
-              dir="auto"
-              className="w-full bg-white rounded-xl px-4 py-3 text-xl text-brand placeholder-brand/60 font-medium focus:outline-none"
+              dir={isRTL ? "rtl" : "ltr"}
+              className="w-full bg-white rounded-xl px-4 py-3 text-base text-brand placeholder-brand/60 font-medium focus:outline-none"
             />
           </div>
 
@@ -111,8 +110,8 @@ const ContactForm = () => {
               name="email"
               placeholder={t.emailPlaceholder}
               required
-              dir="auto"
-              className="w-full bg-white rounded-xl px-4 py-3 text-xl text-brand placeholder-brand/60 font-medium focus:outline-none"
+              dir={isRTL ? "rtl" : "ltr"}
+              className="w-full bg-white rounded-xl px-4 py-3 text-base text-brand placeholder-brand/60 font-medium focus:outline-none"
             />
           </div>
 
@@ -124,8 +123,10 @@ const ContactForm = () => {
               name="phone"
               placeholder={t.phonePlaceholder}
               required
-              dir="auto"
-              className="w-full bg-white rounded-xl px-4 py-3 text-xl text-brand placeholder-brand/60 font-medium focus:outline-none"
+              dir="ltr"
+              className={`w-full bg-white rounded-xl px-4 py-3 text-base text-brand placeholder-brand/60 font-medium focus:outline-none ${
+                isRTL ? "text-right" : "text-left"
+              }`}
             />
           </div>
 
@@ -137,8 +138,8 @@ const ContactForm = () => {
               placeholder={t.messagePlaceholder}
               required
               rows={5}
-              dir="auto"
-              className="w-full bg-white rounded-xl px-4 py-3 text-xl text-brand placeholder-brand/60 font-medium focus:outline-none resize-none"
+              dir={isRTL ? "rtl" : "ltr"}
+              className="w-full bg-white rounded-xl px-4 py-3 text-base text-brand placeholder-brand/60 font-medium focus:outline-none resize-none"
             />
           </div>
 
@@ -171,7 +172,7 @@ const ContactForm = () => {
             </label>
           </div>
 
-          {/* Submit button — Reverted back to explicit branding color tokens */}
+          {/* Submit button */}
           <button
             type="submit"
             disabled={loading}
