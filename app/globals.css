@@ -6,6 +6,7 @@
   --color-accent: #CBDFE4;
   --color-lightbg: #EEEDFF;
   --color-muted: #BCBCBC;
+  --color-menubtn: #96BFC8;
   --color-white: #ffffff;
   --color-slate: #f8fafc;
   --color-text-dark: #1e293b;
@@ -44,4 +45,8 @@ body {
 /* Insurance strip speed control */
 @utility animate-marquee-services {
   animation: marquee-ltr 100s linear infinite !important;
+}
+
+html {
+  scroll-behavior: smooth;
 }
