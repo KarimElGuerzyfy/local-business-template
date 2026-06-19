@@ -16,7 +16,7 @@ export const clinicConfig = {
   // Contact
   phone: "+212 532-002351",
   whatsapp: "+212652150599",
-  email: "contact@centredentaire-marbouh.ma",
+  email: "contact@centredentaire.ma",
   formspreeEndpoint: "https://formspree.io/f/mlgkgzgg",
 
   // Location
