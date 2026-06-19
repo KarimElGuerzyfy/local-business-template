@@ -82,7 +82,6 @@ const Testimonials = () => {
             {sectionTitle}
           </h2>
 
-          {/* Rating Badge — Fixed Layout Constraints */}
           <div className="w-full flex justify-center mt-4">
             <a
               href={rating.reviewUrl}

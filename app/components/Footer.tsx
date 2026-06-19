@@ -14,7 +14,6 @@ const Footer = () => {
   const labels = {
     fr: {
       rights: `© ${new Date().getFullYear()} ${clinicConfig.clinicName.fr}. Tous droits réservés.`,
-      addressTitle: "Localisation",
       utilitiesTitle: "Patient Utilitaires",
       contactTitle: "Canaux Directs",
       privacy: "Politique de confidentialité",
@@ -24,11 +23,10 @@ const Footer = () => {
       services: "Nos Spécialités",
       about: "Contact",
       developedBy: "Développé par",
-      designedBy: "Design par"
+      designedBy: "Design par",
     },
     ar: {
       rights: `© ${new Date().getFullYear()} ${clinicConfig.clinicName.ar}. جميع الحقوق محفوظة.`,
-      addressTitle: "الموقع",
       utilitiesTitle: "روابط تهمك",
       contactTitle: "التواصل المباشر",
       privacy: "سياسة الخصوصية",
@@ -38,7 +36,7 @@ const Footer = () => {
       services: "تخصصاتنا",
       about: "اتصل بنا",
       developedBy: "تطوير",
-      designedBy: "تصميم"
+      designedBy: "تصميم",
     },
   };
 
@@ -47,32 +45,32 @@ const Footer = () => {
   return (
     <footer
       dir={isRTL ? "rtl" : "ltr"}
-      className="w-full bg-lightbg text-brand pt-16 pb-8"
+      className="w-full bg-white text-brand pt-16 pb-8"
     >
       <div className="container mx-auto px-4 max-w-7xl flex flex-col gap-12">
-        
-        {/* Tier 1: Three-Column Relational Layout Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pb-4">
 
-          {/* Column 1: Identity & Geolocation Core */}
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1">
-              <h3 className="text-2xl font-bold tracking-tight text-brand">
-                {clinicConfig.clinicName[lang]}
-              </h3>
-              <p className="text-brand text-base font-medium">
-                {clinicConfig.specialty[lang]}
-              </p>
-            </div>
-            <div className="flex items-start gap-3 text-brand/90 text-sm leading-relaxed max-w-sm">
-              <MapPin className="w-5 h-5 shrink-0 text-brand mt-0.5" />
-              <span>{clinicConfig.address[lang]}</span>
-            </div>
+        {/* Tier 1: Full-width Identity Row */}
+        <div className="flex flex-col gap-4 pb-2 border-b border-brand/10">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-2xl font-bold tracking-tight text-brand">
+              {clinicConfig.clinicName[lang]}
+            </h3>
+            <p className="text-brand text-base font-medium">
+              {clinicConfig.specialty[lang]}
+            </p>
           </div>
+          <div className="flex items-start gap-3 text-brand text-sm leading-relaxed mt-8">
+            <MapPin className="w-5 h-5 shrink-0 text-brand" />
+            <span>{clinicConfig.address[lang]}</span>
+          </div>
+        </div>
 
-          {/* Column 2: Contextual Patient Utilities Fallback */}
+        {/* Tier 2: Two-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 pb-4 mt-2">
+
+          {/* Column 1: Patient Utilities */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-brand font-bold text-base uppercase tracking-wider border-b border-brand/10 pb-2">
+            <h4 className="text-brand font-bold text-base tracking-wider pb-2">
               {t.utilitiesTitle}
             </h4>
             <nav className="flex flex-col gap-3 text-sm font-medium">
@@ -80,7 +78,7 @@ const Footer = () => {
                 <span>{t.services}</span>
                 <ArrowUpRight className="w-3 h-3 opacity-60" />
               </Link>
-              <Link href="#testimonials" className="text-brand hover:text-brand/70 transition-colors flex items-center gap-1">
+              <Link href="#avis" className="text-brand hover:text-brand/70 transition-colors flex items-center gap-1">
                 <span>{t.testimonials}</span>
                 <ArrowUpRight className="w-3 h-3 opacity-60" />
               </Link>
@@ -91,9 +89,9 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Column 3: Communication Hardware Endpoints */}
+          {/* Column 2: Contact */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-brand font-bold text-base uppercase tracking-wider border-b border-brand/10 pb-2">
+            <h4 className="text-brand font-bold text-base tracking-wider pb-2">
               {t.contactTitle}
             </h4>
             <div className="flex flex-col gap-3 text-sm font-semibold">
@@ -105,6 +103,7 @@ const Footer = () => {
                 <Phone className="w-4 h-4 text-brand shrink-0" />
                 <span>{clinicConfig.phone}</span>
               </a>
+              
               <a
                 href={`https://wa.me/${clinicConfig.whatsapp}`}
                 target="_blank"
@@ -114,6 +113,7 @@ const Footer = () => {
                 <span className="w-2 h-2 rounded-full bg-[#14AE5C] animate-pulse" />
                 <span>WhatsApp Live Chat</span>
               </a>
+              
               <a
                 href={`mailto:${clinicConfig.email}`}
                 className="text-brand hover:text-brand/70 transition-colors w-fit underline decoration-brand/20 underline-offset-4"
@@ -125,25 +125,23 @@ const Footer = () => {
 
         </div>
 
-        {/* Tier 2: Legal Registry Footer Module */}
+        {/* Tier 3: Legal Registry */}
         <div className="border-t border-brand/10 pt-6 flex items-center gap-3 text-brand/70 text-xs leading-relaxed">
           <ShieldCheck className="w-5 h-5 text-brand/50 shrink-0" />
           <p>{t.license}</p>
         </div>
 
-        {/* Tier 3: IP Ownership, Attributions & System Terms Split */}
+        {/* Tier 4: IP Ownership & Credits */}
         <div className="border-t border-brand/5 pt-6 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-brand/70 bg-brand/5 p-4 rounded-xl">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
             <p className="font-medium">{t.rights}</p>
             <span className="hidden sm:inline opacity-30">|</span>
-            {/* Professional Production Credits */}
             <p className="text-brand/80 font-medium">
               {t.designedBy} <span className="text-brand font-bold">Driss Bourkkadi</span>
               <span className="mx-2 opacity-40">•</span>
               {t.developedBy} <span className="text-brand font-bold">Karim El Guerzyfy</span>
             </p>
           </div>
-          
           <div className="flex items-center gap-6 font-semibold">
             <Link href="/privacy" className="hover:text-brand/70 transition-colors">
               {t.privacy}

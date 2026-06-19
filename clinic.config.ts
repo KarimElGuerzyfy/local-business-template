@@ -42,14 +42,14 @@ export const clinicConfig = {
   // Stats
   stats: {
     fr: [
-      { value: "+500", label: "Interventions réalisées" },
-      { value: "+1000", label: "Patients satisfaits" },
-      { value: "+200", label: "Interventions annuelles" },
+      { value: "500+", label: "Interventions réalisées" },
+      { value: "1000+", label: "Patients satisfaits" },
+      { value: "200+", label: "Interventions annuelles" },
     ],
     ar: [
-      { value: "+500", label: "العمليات المجراة" },
-      { value: "+1000", label: "مرضى راضون" },
-      { value: "+200", label: "العمليات السنوية" },
+      { value: "500+", label: "العمليات المجراة" },
+      { value: "1000+", label: "مرضى راضون" },
+      { value: "200+", label: "العمليات السنوية" },
     ],
   },
 

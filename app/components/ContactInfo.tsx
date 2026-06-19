@@ -33,25 +33,21 @@ const ContactInfo = () => {
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="flex flex-col gap-6 w-full">
       
-      {/* Title Block */}
       <div className="flex flex-col gap-2 md:mb-16">
         <h3 className="text-accent font-bold text-4xl">{t.title}</h3>
         <p className="text-accent text-xl font-medium leading-relaxed">{t.subtitle}</p>
       </div>
 
-      {/* Email Information Wrapper - High-Contrast White Glassmorphism */}
       <div className="flex items-center gap-3 bg-white/7 border border-white/20 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] rounded-xl px-4 py-3">
         <Mail className="w-5 h-5 text-accent shrink-0" />
         <span className="text-accent text-xl font-medium">{clinicConfig.email}</span>
       </div>
 
-      {/* Telephone Information Wrapper - High-Contrast White Glassmorphism */}
       <div className="flex items-center gap-3 bg-white/7 border border-white/20 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] rounded-xl px-4 py-3">
         <Phone className="w-5 h-5 text-accent shrink-0" />
         <span className="text-accent text-xl font-medium" dir="ltr">{clinicConfig.phone}</span>
       </div>
       
-      {/* WhatsApp Redirect Anchor */}
       <a
         href={`https://wa.me/${clinicConfig.whatsapp}`}
         target="_blank"
@@ -62,7 +58,6 @@ const ContactInfo = () => {
         <span className="text-xl font-medium">{t.whatsapp}</span>
       </a>
 
-      {/* Operational Hours Manifest Layout Card - High-Contrast White Glassmorphism */}
       <div className="flex flex-col gap-3 bg-white/7 border border-white/20 backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] rounded-xl px-4 py-4">
         <div className="flex items-center gap-2 border-b border-white/10 pb-3">
           <Clock className="w-6 h-6 text-accent shrink-0" />

@@ -45,7 +45,6 @@ const Hero = () => {
       {/* Main Content Container */}
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end px-4 md:px-8 pt-10 md:pt-45 pb-0 w-full">
 
-        {/* Left: Text Content Layout */}
         <div className="w-full md:w-1/2 flex flex-col pb-10 lg:pb-20 md:pr-8">
 
           {/* Name */}
@@ -82,7 +81,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
             <a
               href={`tel:${clinicConfig.phone}`}
-              className="inline-flex items-center justify-center gap-2 bg-accent text-brand rounded-xl px-3 py-3 text-sm  hover:bg-accent/80 transition-all w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-accent text-brand rounded-xl px-3 py-3 text-base font-medium hover:bg-accent/80 transition-all w-full sm:w-auto"
             >
               <Phone className="w-4 h-4 shrink-0" />
               <span>{callLabel}</span>
@@ -90,7 +89,7 @@ const Hero = () => {
 
             <a
               href="#services"
-              className="inline-flex items-center justify-center gap-2 border border-white text-white rounded-xl px-3 py-3 text-sm  hover:bg-white/5 transition-all group w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 border border-white text-white rounded-xl px-3 py-3 text-base font-medium hover:bg-white/5 transition-all group w-full sm:w-auto"
             >
               <span>{servicesLabel}</span>
               {isRTL ? (
@@ -117,7 +116,6 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Desktop: Doctor Vector Illustration */}
         <div className="flex w-full md:w-1/2 justify-center md:justify-end items-end">
           <div className="relative w-64 sm:w-80 md:w-96 lg:w-120 h-87.5 sm:h-105 md:h-125 lg:h-145">
             <Image

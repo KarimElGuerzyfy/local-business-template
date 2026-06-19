@@ -14,7 +14,6 @@ const Contact = () => {
       dir={isRTL ? "rtl" : "ltr"}
       className="relative w-full bg-brand pt-16 pb-20 text-white overflow-hidden"
     >
-      {/* Optimized Background Layer */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <Image 
           src="/contact/contact-bg.svg" 
@@ -26,7 +25,6 @@ const Contact = () => {
         />
       </div>
 
-      {/* Structural Layer Content */}
       <div className="relative z-10 container mx-auto px-4 max-w-7xl">
 
         {/* Section Header */}
@@ -37,7 +35,6 @@ const Contact = () => {
           <div className="mt-8 mx-auto w-full h-px bg-white" />
         </div>
 
-        {/* Symmetrical Two Column Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="w-full">
             <ContactForm />

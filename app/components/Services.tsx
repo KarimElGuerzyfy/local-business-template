@@ -37,7 +37,6 @@ const Services = () => {
       ? "Des soins dentaires complets pour toute la famille"
       : "رعاية أسنان شاملة لجميع أفراد العائلة";
 
-  // Evaluates container boundaries to manage the disabled states of the arrows
   const checkScrollBounds = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
@@ -65,7 +64,6 @@ const Services = () => {
       
       e.preventDefault();
       
-      // Amplifies deltaY so desktop wheels slide fluidly instead of dragging 1px at a time
       const scrollSpeedMultiplier = 2.5;
       
       container.scrollBy({
@@ -116,7 +114,7 @@ const Services = () => {
         {/* Services Carousel */}
         <div 
           ref={scrollContainerRef}
-          className="w-full flex gap-5 overflow-x-auto px-4 py-2 [scroll-behavior:smooth] [scroll-snap-type:x_mandatory] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="w-full flex gap-3 overflow-x-auto px-4 py-2 [scroll-behavior:smooth] [scroll-snap-type:x_mandatory] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           {services.map((service, index) => (
             <ServiceCard

@@ -39,7 +39,7 @@ body {
 
 /* Hero address strip speed control */
 @utility animate-marquee-hero {
-  animation: marquee-ltr 50s linear infinite !important;
+  animation: marquee-ltr 80s linear infinite !important;
 }
 
 /* Insurance strip speed control */

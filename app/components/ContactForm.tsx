@@ -143,7 +143,6 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Custom Checkbox Layout Wrapper */}
           <div className="flex items-center gap-3 select-none">
             <div
               onClick={() => setChecked(!checked)}

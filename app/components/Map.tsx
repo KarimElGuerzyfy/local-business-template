@@ -29,12 +29,10 @@ const Map = () => {
       dir={isRTL ? "rtl" : "ltr"}
       className="w-full py-16 md:py-28 bg-lightbg"
     >
-      {/* Width locked to 7xl to match system layout rules */}
       <div className="container mx-auto px-4 max-w-7xl flex flex-col gap-2">
 
         {/* Section Header */}
         <div className="text-center w-full">
-          {/* Title size fixed to 36px (text-4xl) with medium weight */}
           <h2 className="text-brand font-medium text-4xl tracking-tight mb-5">
             {t.title}
           </h2>
@@ -43,12 +41,9 @@ const Map = () => {
           </p>
         </div>
 
-        {/* Divider matching section width and color brand */}
         <hr className="w-full border-t-2 border-brand mb-4 md:mb-2" />
 
-        {/* Map Canvas and Button Combo */}
         <div className="w-full flex flex-col gap-4">
-          {/* Map iframe matching container width */}
           <div className="w-full rounded-2xl overflow-hidden shadow-sm border border-brand/10 bg-white">
             <iframe
               src={clinicConfig.googleMapsEmbed}
@@ -62,7 +57,6 @@ const Map = () => {
             />
           </div>
 
-          {/* Action Link Button matching section width */}
           <a
             href={clinicConfig.googleMapsUrl}
             target="_blank"

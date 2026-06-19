@@ -6,7 +6,6 @@ import { useLanguage } from "../LanguageContext";
 import clinicConfig from "@/clinic.config";
 import Image from "next/image";
 
-// Explicitly type the icon property using LucideIcon
 const navItems: Record<"fr" | "ar", { label: string; href: string; icon: LucideIcon }[]> = {
   fr: [
     { label: "Accueil", href: "#hero", icon: Home },
@@ -69,7 +68,6 @@ const Nav = () => {
         <MoreHorizontal className="w-6 h-6 stroke-[2.5]" />
       </button>
 
-      {/* Mobile Fullscreen Dropdown Overlay Menu */}
       {isOpen && (
         <div 
           dir="ltr" 
@@ -93,8 +91,7 @@ const Nav = () => {
 
           {/* Core Content Layout Area */}
           <nav className="flex-1 flex flex-col px-6 py-8 gap-4 overflow-y-auto">
-            {/* Nav Links formatted as Pill Blocks */}
-            <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2">
               {items.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -115,7 +112,6 @@ const Nav = () => {
               })}
             </div>
 
-            {/* Language Switcher Strip Assembly */}
             <div className="mt-auto flex flex-col gap-1">
               <div className="w-full bg-brand text-white rounded-2xl p-2 flex items-center justify-between shadow-md">
                 <div className="flex items-center gap-2.5 flex-1">
@@ -146,7 +142,6 @@ const Nav = () => {
                 </div>
               </div>
 
-              {/* Primary Call Router Endpoint */}
               <a
                 href={`tel:${clinicConfig.phone}`}
                 onClick={closeMenu}
